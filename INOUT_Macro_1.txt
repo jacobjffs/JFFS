@@ -1,0 +1,394 @@
+Sub Macro1()
+Application.ScreenUpdating = True
+
+'
+'CTRL +Q
+
+' Macro1 Macro
+' replace "Base 2----n" with "2017 annual desgn"
+'
+'
+
+Call sorting
+Call Macros
+Call Macro2
+Call Macro3
+Call Macro4
+Call Macro5
+Columns("H:H").Select
+    Selection.NumberFormat = "_($* #,##0.00_);_($* (#,##0.00);_($* ""-""??_);_(@_)"
+Columns("I:I").Select
+    Selection.NumberFormat = "_($* #,##0.00_);_($* (#,##0.00);_($* ""-""??_);_(@_)"
+  Columns("J:J").Select
+    Selection.NumberFormat = "_($* #,##0.00_);_($* (#,##0.00);_($* ""-""??_);_(@_)"
+Columns("K:K").Select
+    Selection.NumberFormat = "_($* #,##0.00_);_($* (#,##0.00);_($* ""-""??_);_(@_)"
+    Columns("L:L").Select
+    Selection.NumberFormat = "_($* #,##0.00_);_($* (#,##0.00);_($* ""-""??_);_(@_)"
+    Columns("M:M").Select
+    Selection.NumberFormat = "_($* #,##0.00_);_($* (#,##0.00);_($* ""-""??_);_(@_)"
+    Columns("N:N").Select
+    Selection.NumberFormat = "_($* #,##0.00_);_($* (#,##0.00);_($* ""-""??_);_(@_)"
+    Columns("O:O").Select
+    Selection.NumberFormat = "_($* #,##0.00_);_($* (#,##0.00);_($* ""-""??_);_(@_)"
+    Columns("P:P").Select
+    Selection.NumberFormat = "_($* #,##0.00_);_($* (#,##0.00);_($* ""-""??_);_(@_)"
+    
+    
+   
+
+
+    
+MsgBox ("           !!!!!!!!!        Process Done       !!!!!!!!!          ")
+
+
+ Application.ScreenUpdating = False
+        
+        
+   
+End Sub
+
+Sub sorting()
+
+    Cells.Select
+    ActiveWorkbook.Worksheets("Results").Sort.SortFields.Clear
+    ActiveWorkbook.Worksheets("Results").Sort.SortFields.Add Key:=range( _
+        "J2:J9155"), SortOn:=xlSortOnValues, Order:=xlDescending, DataOption:= _
+        xlSortNormal
+    With ActiveWorkbook.Worksheets("Results").Sort
+        .SetRange range("A1:AZ9155")
+        .Header = xlYes
+        .MatchCase = False
+        .Orientation = xlTopToBottom
+        .SortMethod = xlPinYin
+        .Apply
+    End With
+End Sub
+  
+
+
+Sub Macros()
+
+Application.ScreenUpdating = True
+
+Cells.Replace What:="Base 1", Replacement:=" 2018 Annual Base ", LookAt:=xlPart, SearchOrder _
+        :=xlByRows, MatchCase:=False, SearchFormat:=False, ReplaceFormat:=False
+        Cells.Replace What:="Base 2", Replacement:="2018 Desgn Base", LookAt:=xlPart, SearchOrder _
+        :=xlByRows, MatchCase:=False, SearchFormat:=False, ReplaceFormat:=False
+        Cells.Replace What:="Base 3", Replacement:=" 2018 Ann&Desgn Base ", LookAt:=xlPart, SearchOrder _
+        :=xlByRows, MatchCase:=False, SearchFormat:=False, ReplaceFormat:=False
+        
+        
+        Cells.Replace What:="Base 4", Replacement:=" 2017 Annual Base ", LookAt:=xlPart, SearchOrder _
+        :=xlByRows, MatchCase:=False, SearchFormat:=False, ReplaceFormat:=False
+        Cells.Replace What:="Base 5", Replacement:="2017 Desgn Base", LookAt:=xlPart, SearchOrder _
+        :=xlByRows, MatchCase:=False, SearchFormat:=False, ReplaceFormat:=False
+        Cells.Replace What:="Base 6", Replacement:=" 2017 Ann&Desgn Base ", LookAt:=xlPart, SearchOrder _
+        :=xlByRows, MatchCase:=False, SearchFormat:=False, ReplaceFormat:=False
+        
+        Cells.Replace What:="Base 7", Replacement:=" 2016 Annual Base ", LookAt:=xlPart, SearchOrder _
+        :=xlByRows, MatchCase:=False, SearchFormat:=False, ReplaceFormat:=False
+        Cells.Replace What:="Base 8", Replacement:=" 2016 Desgn Base ", LookAt:=xlPart, SearchOrder _
+        :=xlByRows, MatchCase:=False, SearchFormat:=False, ReplaceFormat:=False
+        Cells.Replace What:="Base 9", Replacement:=" 2016 Ann&Desgn Base ", LookAt:=xlPart, SearchOrder _
+        :=xlByRows, MatchCase:=False, SearchFormat:=False, ReplaceFormat:=False
+        
+        Cells.Replace What:="Base 10", Replacement:=" 2015 Annual Base ", LookAt:=xlPart, SearchOrder _
+        :=xlByRows, MatchCase:=False, SearchFormat:=False, ReplaceFormat:=False
+        Cells.Replace What:="Base 11", Replacement:=" 2015 Desgn Base ", LookAt:=xlPart, SearchOrder _
+        :=xlByRows, MatchCase:=False, SearchFormat:=False, ReplaceFormat:=False
+        Cells.Replace What:="Base 12", Replacement:=" 2015 Ann&Desgn Base ", LookAt:=xlPart, SearchOrder _
+        :=xlByRows, MatchCase:=False, SearchFormat:=False, ReplaceFormat:=False
+        Call c7
+        Call c8
+        Call c9
+        Call c1
+        Call c2
+        Call c3
+        Call c4
+        Call c5
+        Call c6
+           
+     
+        Application.ScreenUpdating = False
+
+End Sub
+'  Cell Clour Change
+Sub c9()
+
+
+Dim sourceRng As range
+    Dim cell As range
+    Dim i As Long
+
+    Set sourceRng = Sheets("Results").range("J1:J999999")
+    i = 1
+
+    For Each cell In sourceRng
+        If IsEmpty(cell.Value) = False Then
+              cell.Interior.Color = RGB(255, 204, 153)
+              
+                      i = i + 1
+        End If
+     
+        
+    Next cell
+    
+End Sub
+Sub c8()
+
+
+Dim sourceRng As range
+    Dim cell As range
+    Dim i As Long
+
+    Set sourceRng = Sheets("Results").range("H1:H999999")
+    i = 1
+
+    For Each cell In sourceRng
+        If IsEmpty(cell.Value) = False Then
+              cell.Interior.Color = RGB(255, 204, 153)
+              
+                      i = i + 1
+        End If
+     
+        
+    Next cell
+    
+End Sub
+Sub c7()
+
+
+Dim sourceRng As range
+    Dim cell As range
+    Dim i As Long
+
+    Set sourceRng = Sheets("Results").range("I1:I999999")
+    i = 1
+
+    For Each cell In sourceRng
+        If IsEmpty(cell.Value) = False Then
+              cell.Interior.Color = RGB(255, 204, 153)
+              
+                      i = i + 1
+        End If
+     
+        
+    Next cell
+    
+End Sub
+'  Cell Clour Change
+Sub c1()
+
+
+Dim sourceRng As range
+    Dim cell As range
+    Dim i As Long
+
+    Set sourceRng = Sheets("Results").range("k1:k999999")
+    i = 1
+
+    For Each cell In sourceRng
+        If IsEmpty(cell.Value) = False Then
+              cell.Interior.Color = RGB(204, 204, 255)
+                      i = i + 1
+        End If
+     
+        
+    Next cell
+    
+End Sub
+Sub c2()
+
+
+                 Dim sourceRng As range
+                    Dim cell As range
+                    Dim i As Long
+                
+                    Set sourceRng = Sheets("Results").range("L1:L999999")
+                    i = 1
+                
+                    For Each cell In sourceRng
+                        If IsEmpty(cell.Value) = False Then
+                              cell.Interior.Color = RGB(204, 204, 255)
+                                      i = i + 1
+                        End If
+                     
+                        
+                    Next cell
+                    End Sub
+Sub c3()
+
+                    Dim sourceRng As range
+                    Dim cell As range
+                    Dim i As Long
+                
+                    Set sourceRng = Sheets("Results").range("M1:M999999")
+                    i = 1
+                
+                    For Each cell In sourceRng
+                        If IsEmpty(cell.Value) = False Then
+                              cell.Interior.Color = RGB(204, 204, 255)
+                                      i = i + 1
+                        End If
+                     
+                        
+                    Next cell
+End Sub
+Sub c4()
+
+
+Dim sourceRng As range
+    Dim cell As range
+    Dim i As Long
+
+    Set sourceRng = Sheets("Results").range("N1:N999999")
+    i = 1
+
+    For Each cell In sourceRng
+        If IsEmpty(cell.Value) = False Then
+              cell.Interior.Color = RGB(204, 255, 204)
+                      i = i + 1
+        End If
+     
+        
+    Next cell
+    
+    End Sub
+    Sub c5()
+    
+                 Dim sourceRng As range
+                    Dim cell As range
+                    Dim i As Long
+                
+                    Set sourceRng = Sheets("Results").range("O1:O999999")
+                    i = 1
+                
+                    For Each cell In sourceRng
+                        If IsEmpty(cell.Value) = False Then
+                              cell.Interior.Color = RGB(204, 255, 204)
+                                      i = i + 1
+                        End If
+                     
+                        
+                    Next cell
+        End Sub
+        Sub c6()
+        
+                    Dim sourceRng As range
+                    Dim cell As range
+                    Dim i As Long
+                
+                    Set sourceRng = Sheets("Results").range("P1:P999999")
+                    i = 1
+                
+                    For Each cell In sourceRng
+                        If IsEmpty(cell.Value) = False Then
+                              cell.Interior.Color = RGB(204, 255, 204)
+                                      i = i + 1
+                        End If
+                     
+                        
+                    Next cell
+End Sub
+
+'Sub conditionalformat()
+
+'Dim rng As range
+'Dim cell As range
+' Dim rng1 As range
+' Dim cell1 As range
+'
+' Set rng = Sheets("Results").range("j1:j2000")
+' Set rng1 = Sheets("Results").range("m1:m2000")
+'
+' For Each cell In rng
+'   For Each cell1 In rng1
+'      If IsEmpty(cell.Value) = False Then
+      
+     '   If cell.Value < cell1.Value Then
+     '       cell.Interior.Color = vbGreen
+     '       Else: cell.Interior.Color = vbRed
+     '
+                
+    '   End If
+    ' End If
+    'Next cell1
+ ' Next cell
+  
+        
+     
+'End Sub
+
+
+Sub Macro2()
+'
+' conditional formating macro called
+'
+
+'
+    Columns("J:J").Select
+    Selection.FormatConditions.Add Type:=xlExpression, Formula1:="=$J1>$M1"
+    Selection.FormatConditions(Selection.FormatConditions.Count).SetFirstPriority
+    With Selection.FormatConditions(1).Interior
+        .PatternColorIndex = xlAutomatic
+        .Color = 5296274
+        .TintAndShade = 0
+    End With
+    Selection.FormatConditions(1).StopIfTrue = False
+    
+End Sub
+
+Sub Macro3()
+'
+' conditional formating macro called
+'
+
+'
+    Columns("J:J").Select
+    Selection.FormatConditions.Add Type:=xlExpression, Formula1:="=$J1<$M1"
+    Selection.FormatConditions(Selection.FormatConditions.Count).SetFirstPriority
+    With Selection.FormatConditions(1).Interior
+        .PatternColorIndex = xlAutomatic
+        .Color = 4807157
+        .TintAndShade = 0.399945066682943
+    End With
+    Selection.FormatConditions(1).StopIfTrue = False
+    
+End Sub
+
+
+Sub Macro4()
+'
+' conditional formating macro called
+'
+
+'
+    Columns("J:J").Select
+    Selection.FormatConditions.Add Type:=xlExpression, Formula1:="=$J1=$M1"
+    Selection.FormatConditions(Selection.FormatConditions.Count).SetFirstPriority
+    With Selection.FormatConditions(1).Interior
+        .PatternColorIndex = xlAutomatic
+       .Color = 6470648
+        .TintAndShade = 0
+    End With
+    Selection.FormatConditions(1).StopIfTrue = False
+    
+End Sub
+Sub Macro5()
+'
+' conditional formating macro called
+'
+
+'
+    Columns("H:H").Select
+    Selection.FormatConditions.Add Type:=xlExpression, Formula1:="=$H1= 0"
+    Selection.FormatConditions(Selection.FormatConditions.Count).SetFirstPriority
+    With Selection.FormatConditions(1).Interior
+        .PatternColorIndex = xlAutomatic
+       .Color = vbRed
+        .TintAndShade = 0
+    End With
+    Selection.FormatConditions(1).StopIfTrue = False
+    
+End Sub
